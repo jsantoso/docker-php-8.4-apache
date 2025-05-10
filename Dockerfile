@@ -104,20 +104,20 @@ RUN curl -L -o /tmp/imagick.tar.gz https://github.com/Imagick/imagick/archive/re
     && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini \
     && rm -rf /tmp/*
 
-ADD conf.d/php.ini /etc/php/8.3/php.ini
-ADD conf.d/xdebug.ini /etc/php/8.3/xdebug.ini
+ADD conf.d/php.ini /etc/php/8.4/php.ini
+ADD conf.d/xdebug.ini /etc/php/8.4/xdebug.ini
 
-RUN mkdir -p /etc/php/8.3/fpm/conf.d
-RUN ln -s /etc/php/8.3/php.ini /etc/php/8.3/fpm/conf.d/90-tris.ini
-RUN ln -s /etc/php/8.3/xdebug.ini /etc/php/8.3/fpm/conf.d/90-xdebug.ini
+RUN mkdir -p /etc/php/8.4/fpm/conf.d
+RUN ln -s /etc/php/8.4/php.ini /etc/php/8.4/fpm/conf.d/90-tris.ini
+RUN ln -s /etc/php/8.4/xdebug.ini /etc/php/8.4/fpm/conf.d/90-xdebug.ini
 
-RUN mkdir -p /etc/php/8.3/cli/conf.d
-RUN ln -s /etc/php/8.3/php.ini /etc/php/8.3/cli/conf.d/90-tris.ini
-RUN ln -s /etc/php/8.3/xdebug.ini /etc/php/8.3/cli/conf.d/90-xdebug.ini
+RUN mkdir -p /etc/php/8.4/cli/conf.d
+RUN ln -s /etc/php/8.4/php.ini /etc/php/8.4/cli/conf.d/90-tris.ini
+RUN ln -s /etc/php/8.4/xdebug.ini /etc/php/8.4/cli/conf.d/90-xdebug.ini
 
 RUN mkdir -p /usr/local/etc/php/conf.d
-RUN ln -s /etc/php/8.3/php.ini /usr/local/etc/php/conf.d/90-tris.ini
-RUN ln -s /etc/php/8.3/xdebug.ini /usr/local/etc/php/conf.d/90-xdebug.ini
+RUN ln -s /etc/php/8.4/php.ini /usr/local/etc/php/conf.d/90-tris.ini
+RUN ln -s /etc/php/8.4/xdebug.ini /usr/local/etc/php/conf.d/90-xdebug.ini
 
 RUN rm /etc/apache2/sites-enabled/000-default.conf
 COPY site.conf /etc/apache2/sites-available/site.conf
