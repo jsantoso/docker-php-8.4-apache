@@ -20,7 +20,6 @@ RUN apt-get install -y \
         libpq-dev \
         libxml2-dev \
         libz-dev \
-        libzip4 \
         libzip-dev \
         libmemcached-dev \
         libmcrypt-dev \
@@ -41,6 +40,7 @@ RUN apt-get install -y \
         dcmtk \
         wget \
         libmagickwand-dev \
+        tesseract-ocr \
         unixodbc \
         unixodbc-dev
 
@@ -93,7 +93,7 @@ RUN pecl install xdebug
 RUN pecl install memcached
 RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 
-ARG IMAGICK_VERSION=3.7.0
+ARG IMAGICK_VERSION=3.8.0
 
 RUN curl -L -o /tmp/imagick.tar.gz https://github.com/Imagick/imagick/archive/refs/tags/${IMAGICK_VERSION}.tar.gz \
     && tar --strip-components=1 -xf /tmp/imagick.tar.gz \
